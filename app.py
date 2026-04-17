@@ -1,20 +1,27 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_mail import Mail, Message
+from dotenv import load_dotenv
 import os
+from datetime import datetime
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'devinfotech-secret-key-2026')
 
-# ==================== GMAIL CONFIGURATION ====================
+# Secret key from .env file (important for security and flash messages)
+app.secret_key = os.environ.get('SECRET_KEY')
+
+# ==================== GMAIL CONFIGURATION (from .env) ====================
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')      # Your Gmail
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')      # App Password (not normal password)
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
 
 mail = Mail(app)
-# ============================================================
+# =====================================================================
 
 @app.route('/')
 def index():
@@ -41,19 +48,20 @@ def contact():
         company = request.form.get('company', '')
         message = request.form.get('message')
 
+        # Basic validation
         if not name or not email or not message:
-            flash('Please fill all required fields.', 'danger')
+            flash('Please fill all required fields (Name, Email, and Message).', 'danger')
             return redirect(url_for('contact'))
 
         try:
             msg = Message(
-                subject=f"New Website Enquiry - {name}",
-                recipients=[os.environ.get('MAIL_USERNAME')],   # Your Gmail
+                subject=f"New Enquiry from DevInfotech Website - {name}",
+                recipients=[os.environ.get('MAIL_USERNAME')],
                 reply_to=email
             )
             
             msg.body = f"""
-New Contact Form Submission from DevInfotech Website
+New Contact Form Submission
 
 Name      : {name}
 Email     : {email}
@@ -64,16 +72,17 @@ Message:
 {message}
 
 ---
-Sent from: DevInfotech Pvt. Ltd. Website (Bangalore)
-Time     : {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+Sent from: DevInfotech Pvt. Ltd. Website
+Location : Bengaluru, Karnataka, India
+Time     : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             """
             
             mail.send(msg)
-            flash(f'Thank you {name}! Your enquiry has been received. We will contact you shortly.', 'success')
+            flash(f'Thank you {name}! Your enquiry has been sent successfully. We will contact you within 24 hours.', 'success')
             
         except Exception as e:
-            flash('Sorry, there was a problem sending your message. Please try again or email us directly.', 'danger')
-            print("Email Error:", str(e))
+            flash('Sorry, there was an error sending your message. Please try again or email us directly.', 'danger')
+            print(f"Email Error: {str(e)}")
 
         return redirect(url_for('contact'))
     
