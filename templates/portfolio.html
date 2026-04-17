@@ -1,13 +1,53 @@
-<h1>Our Showcase Work</h1>
-<div class="portfolio-grid">
-    <div class="portfolio-item">
-        <img src="{{ url_for('static', filename='images/dashboard-project.jpg') }}" alt="Project Dashboard">
-        <h3>Leadership Dashboard</h3>
-        <p>Real-time tracking for ERP implementation milestones.</p>
-    </div>
-    <div class="portfolio-item">
-        <img src="{{ url_for('static', filename='images/workflow.png') }}" alt="Jira Workflow">
-        <h3>Custom Workflows</h3>
-        <p>Optimized state transitions for software development lifecycles.</p>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Devinfotech HQ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Devinfotech <span>HQ</span></div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="portfolio-container">
+        <h1>Jira Implementation Showcase</h1>
+        <p>Real-world solutions for Agile teams and Leadership reporting.</p>
+
+        <div class="portfolio-grid">
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/Lidershipdashboards.jpg') }}" alt="Leadership Dashboard">
+                <h3>Executive Leadership Dashboards</h3>
+                <p>High-level visibility for stakeholders tracking cross-project health and team velocity.</p>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/Custome filedes & grouping.png') }}" alt="Custom Fields">
+                <h3>Advanced Data Architecture</h3>
+                <p>Custom fields and grouping logic designed for precise UAT and ERP reporting.</p>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/Automation.png') }}" alt="Jira Automation">
+                <h3>Smart Workflows & Automation</h3>
+                <p>Reducing manual overhead with script-based triggers and automated status transitions.</p>
+            </div>
+
+            <div class="card">
+                <img src="{{ url_for('static', filename='images/Project dashboard.jpg') }}" alt="Project Dashboard">
+                <h3>Project Monitoring</h3>
+                <p>Detailed milestone tracking for complex IT implementations.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
