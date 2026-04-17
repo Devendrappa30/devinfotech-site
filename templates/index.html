@@ -3,44 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devinfotech HQ | Jira Implementation & IT Consulting</title>
+    <title>Devinfotech HQ | Enterprise Jira & IT Consulting</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Devinfotech <span>HQ</span></div>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/contact" class="btn-nav">Get a Quote</a></li>
-            </ul>
-        </nav>
+    <nav class="navbar">
+        <div class="logo">DEVINFOTECH<span>HQ</span></div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/contact" class="btn-cta">Get Started</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <span class="badge">Atlassian Specialization</span>
+            <h1>Optimize Your Workflow with <br>Expert Jira Implementation</h1>
+            <p>We help IT teams in Bengaluru and beyond scale their operations through custom automation, advanced reporting, and Agile frameworks.</p>
+            <div class="hero-actions">
+                <a href="/contact" class="btn-primary">Book a Consultation</a>
+                <a href="/portfolio" class="btn-secondary">View Case Studies</a>
+            </div>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>Scale Your Business with Professional <br><span>Jira Implementation</span></h1>
-        <p>Expert-led configuration, automation, and support for Agile teams. Certified ScrumMaster expertise at your service.</p>
-        <div class="hero-btns">
-            <a href="/contact" class="btn-primary">Consult with an Expert</a>
-            <a href="/services" class="btn-secondary">View Service Packages</a>
-        </div>
-    </section>
-
-    <section class="features">
-        <div class="feature-card">
-            <h3>Workflow Design</h3>
-            <p>Custom-built workflows that match your team's real-world processes.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Advanced Automation</h3>
-            <p>Reduce manual overhead with smart rules and script-based triggers.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Leadership Reporting</h3>
-            <p>High-fidelity dashboards for real-time visibility into project health.</p>
-        </div>
+    <section class="trust-bar">
+        <p>Specializing in: Jira Software • Jira Service Management • Confluence • Agile Coaching</p>
     </section>
 </body>
 </html>
