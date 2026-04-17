@@ -1,53 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Devinfotech HQ</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Devinfotech <span>HQ</span></div>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="portfolio-container">
-        <h1>Jira Implementation Showcase</h1>
-        <p>Real-world solutions for Agile teams and Leadership reporting.</p>
-
-        <div class="portfolio-grid">
-            <div class="card">
-                <img src="{{ url_for('static', filename='images/Lidershipdashboards.jpg') }}" alt="Leadership Dashboard">
-                <h3>Executive Leadership Dashboards</h3>
-                <p>High-level visibility for stakeholders tracking cross-project health and team velocity.</p>
-            </div>
-
-            <div class="card">
-                <img src="{{ url_for('static', filename='images/Custome filedes & grouping.png') }}" alt="Custom Fields">
-                <h3>Advanced Data Architecture</h3>
-                <p>Custom fields and grouping logic designed for precise UAT and ERP reporting.</p>
-            </div>
-
-            <div class="card">
-                <img src="{{ url_for('static', filename='images/Automation.png') }}" alt="Jira Automation">
-                <h3>Smart Workflows & Automation</h3>
-                <p>Reducing manual overhead with script-based triggers and automated status transitions.</p>
-            </div>
-
-            <div class="card">
-                <img src="{{ url_for('static', filename='images/Project dashboard.jpg') }}" alt="Project Dashboard">
-                <h3>Project Monitoring</h3>
-                <p>Detailed milestone tracking for complex IT implementations.</p>
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5">Our Portfolio & Success Stories</h1>
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <img src="https://picsum.photos/id/1016/600/400" class="card-img-top" alt="Project 1">
+                <div class="card-body">
+                    <h5 class="card-title">Zendesk Implementation for E-commerce Giant</h5>
+                    <p class="card-text">Reduced response time by 68% for a leading Indian online retailer.</p>
+                    <span class="badge bg-info">Zendesk</span>
+                </div>
             </div>
         </div>
-    </section>
-</body>
-</html>
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <img src="https://picsum.photos/id/180/600/400" class="card-img-top" alt="Project 2">
+                <div class="card-body">
+                    <h5 class="card-title">Salesforce CRM Transformation</h5>
+                    <p class="card-text">Full Salesforce Sales Cloud rollout for a manufacturing client in Bangalore.</p>
+                    <span class="badge bg-primary">Salesforce</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100">
+                <img src="https://picsum.photos/id/251/600/400" class="card-img-top" alt="Project 3">
+                <div class="card-body">
+                    <h5 class="card-title">Jira Service Management Setup</h5>
+                    <p class="card-text">Enterprise-wide ITSM solution for a fintech startup.</p>
+                    <span class="badge bg-success">Jira</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-center text-muted mt-4">More projects coming soon as we grow!</p>
+</div>
+{% endblock %}
