@@ -1,9 +1,46 @@
-{% extends "base.html" %}
-{% block content %}
-    <div class="p-5 bg-light rounded shadow">
-        <h1>Welcome to Devinfotech</h1>
-        <p class="lead">We provide expert IT consulting and automation solutions.</p>
-        <hr>
-        <p>Managed by Project Experts for global clients.</p>
-    </div>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devinfotech HQ | Jira Implementation & IT Consulting</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Devinfotech <span>HQ</span></div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/contact" class="btn-nav">Get a Quote</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Scale Your Business with Professional <br><span>Jira Implementation</span></h1>
+        <p>Expert-led configuration, automation, and support for Agile teams. Certified ScrumMaster expertise at your service.</p>
+        <div class="hero-btns">
+            <a href="/contact" class="btn-primary">Consult with an Expert</a>
+            <a href="/services" class="btn-secondary">View Service Packages</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Workflow Design</h3>
+            <p>Custom-built workflows that match your team's real-world processes.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Advanced Automation</h3>
+            <p>Reduce manual overhead with smart rules and script-based triggers.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Leadership Reporting</h3>
+            <p>High-fidelity dashboards for real-time visibility into project health.</p>
+        </div>
+    </section>
+</body>
+</html>
