@@ -1,98 +1,31 @@
 :root {
-    --primary: #0052CC;
-    --dark: #172B4D;
-    --text-main: #42526E;
-    --bg-light: #F4F5F7;
-    --white: #ffffff;
+    --primary: #0d6efd;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    color: var(--text-main);
-    background-color: var(--white);
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 10%;
-    background: var(--white);
-    border-bottom: 1px solid #ebecf0;
+.navbar-brand {
+    font-size: 1.8rem;
 }
 
-.logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
-.logo span { color: var(--dark); }
-
-.nav-links { display: flex; list-style: none; align-items: center; }
-.nav-links li { margin-left: 30px; }
-.nav-links a { text-decoration: none; color: var(--dark); font-weight: 600; font-size: 0.95rem; }
-
-.btn-cta {
-    background: var(--primary);
-    color: white !important;
-    padding: 10px 20px;
-    border-radius: 4px;
-    transition: 0.3s;
+.card {
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
 }
 
-/* Hero Section */
-.hero-section {
-    padding: 100px 10%;
-    background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
-    text-align: center;
+footer a {
+    transition: color 0.2s;
+}
+footer a:hover {
+    color: #0d6efd !important;
 }
 
-.badge {
-    background: #E6EFFC;
-    color: var(--primary);
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.hero-section h1 {
-    font-size: 3.5rem;
-    color: var(--dark);
-    margin: 20px 0;
-    line-height: 1.2;
-}
-
-.hero-section p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 40px;
-}
-
-.btn-primary {
-    background: var(--primary);
-    color: white;
-    padding: 15px 35px;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 600;
-    margin-right: 15px;
-}
-
-.btn-secondary {
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    padding: 13px 35px;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 600;
-}
-
-/* Trust Bar */
-.trust-bar {
-    padding: 20px;
-    background: var(--bg-light);
-    text-align: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #6B778C;
+/* Make hero image responsive */
+img {
+    max-width: 100%;
+    height: auto;
 }
