@@ -1,10 +1,21 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
+from flask_mail import Mail, Message
 import os
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'devinfotech-super-secret-key-2026')
+app.secret_key = os.environ.get('SECRET_KEY', 'devinfotech-secret-key-2026')
 
-# Routes
+# ==================== GMAIL CONFIGURATION ====================
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')      # Your Gmail
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')      # App Password (not normal password)
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
+
+mail = Mail(app)
+# ============================================================
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -26,13 +37,44 @@ def contact():
     if request.method == 'POST':
         name = request.form.get('name')
         email = request.form.get('email')
-        phone = request.form.get('phone')
-        company = request.form.get('company')
+        phone = request.form.get('phone', '')
+        company = request.form.get('company', '')
         message = request.form.get('message')
-        
-        # In production you can add email sending here (Flask-Mail or SMTP)
-        # For now we just show success message
-        flash(f'Thank you, {name}! Your message has been received. Our team will contact you within 24 hours.', 'success')
+
+        if not name or not email or not message:
+            flash('Please fill all required fields.', 'danger')
+            return redirect(url_for('contact'))
+
+        try:
+            msg = Message(
+                subject=f"New Website Enquiry - {name}",
+                recipients=[os.environ.get('MAIL_USERNAME')],   # Your Gmail
+                reply_to=email
+            )
+            
+            msg.body = f"""
+New Contact Form Submission from DevInfotech Website
+
+Name      : {name}
+Email     : {email}
+Phone     : {phone}
+Company   : {company}
+
+Message:
+{message}
+
+---
+Sent from: DevInfotech Pvt. Ltd. Website (Bangalore)
+Time     : {__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+            """
+            
+            mail.send(msg)
+            flash(f'Thank you {name}! Your enquiry has been received. We will contact you shortly.', 'success')
+            
+        except Exception as e:
+            flash('Sorry, there was a problem sending your message. Please try again or email us directly.', 'danger')
+            print("Email Error:", str(e))
+
         return redirect(url_for('contact'))
     
     return render_template('contact.html')
