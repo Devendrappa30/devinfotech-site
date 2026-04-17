@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Contact Devinfotech HQ</h2>
+    <p>Send us a requirement, and it will be saved to our local database.</p>
+    <form action="/contact" method="POST" class="card p-4 shadow-sm">
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Project Details</label>
+            <textarea name="message" class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit to Database</button>
+    </form>
+{% endblock %}
