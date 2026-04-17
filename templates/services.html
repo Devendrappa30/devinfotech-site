@@ -1,22 +1,55 @@
-<section class="pricing-tier">
-    <div class="tier">
-        <h2>Starter Setup</h2>
-        <p>Perfect for small teams moving to Jira.</p>
-        <ul>
-            <li>Project & Board Setup</li>
-            <li>Basic Workflow Config</li>
-            <li>User Permission Setup</li>
-        </ul>
-        <a href="/contact" class="btn-tier">Inquire Now</a>
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="text-center mb-5">Our Services</h1>
+    
+    <div class="row g-5">
+        <div class="col-lg-4">
+            <div class="card h-100 border-0 shadow">
+                <div class="card-header bg-info text-white"><h5>Zendesk</h5></div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check me-2"></i> Licensing & Subscription Management</li>
+                        <li><i class="fas fa-check me-2"></i> Full Implementation & Migration</li>
+                        <li><i class="fas fa-check me-2"></i> Custom App Development</li>
+                        <li><i class="fas fa-check me-2"></i> Maintenance & 24×7 Support</li>
+                        <li><i class="fas fa-check me-2"></i> Training & Consulting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100 border-0 shadow">
+                <div class="card-header bg-primary text-white"><h5>Salesforce</h5></div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check me-2"></i> Sales Cloud, Service Cloud, Marketing Cloud</li>
+                        <li><i class="fas fa-check me-2"></i> Licensing & Renewal</li>
+                        <li><i class="fas fa-check me-2"></i> Implementation & Data Migration</li>
+                        <li><i class="fas fa-check me-2"></i> Custom Development (Apex, Flow, LWC)</li>
+                        <li><i class="fas fa-check me-2"></i> Ongoing Support & Optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card h-100 border-0 shadow">
+                <div class="card-header bg-success text-white"><h5>Jira</h5></div>
+                <div class="card-body">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-check me-2"></i> Jira Software, Jira Service Management</li>
+                        <li><i class="fas fa-check me-2"></i> Licensing & Cloud Setup</li>
+                        <li><i class="fas fa-check me-2"></i> Agile & Scrum Implementation</li>
+                        <li><i class="fas fa-check me-2"></i> Custom Workflows & Automation</li>
+                        <li><i class="fas fa-check me-2"></i> Maintenance & User Training</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="tier featured">
-        <h2>Growth Package</h2>
-        <p>Advanced automation and reporting.</p>
-        <ul>
-            <li>Custom Issue Types & Fields</li>
-            <li>Advanced Automation Rules</li>
-            <li>Leadership Dashboards</li>
-        </ul>
-        <a href="/contact" class="btn-tier">Best Value</a>
+
+    <div class="text-center mt-5">
+        <a href="/contact" class="btn btn-primary btn-lg">Request a Quote Today</a>
     </div>
-</section>
+</div>
+{% endblock %}
