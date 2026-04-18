@@ -9,13 +9,14 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Secret key from .env file (important for security and flash messages)
+# Secret key from .env file
 app.secret_key = os.environ.get('SECRET_KEY')
 
 # ==================== GMAIL CONFIGURATION (from .env) ====================
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_USERNAME')
@@ -82,7 +83,7 @@ Time     : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
             
         except Exception as e:
             flash('Sorry, there was an error sending your message. Please try again or email us directly.', 'danger')
-            print(f"Email Error: {str(e)}")
+            print(f"Email Error: {str(e)}")   # This will show in terminal
 
         return redirect(url_for('contact'))
     
