@@ -1,6 +1,25 @@
-.env
+# Virtual Environment
 .venv/
+venv/
+
+# Environment variables - IMPORTANT (protects your Gmail password)
+.env
+
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# macOS system files
 .DS_Store
+
+# Database files
 database.db
+*.sqlite3
+
+# Log files
+*.log
+
+# Render / Deployment
+.render
